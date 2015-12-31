@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>jQuery One</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>jQuery One</h1>
+    <section>
+      <ul>
+        <li>You will code in this index.html file, save and refresh to see the results of your work.</li>
+        <li><a href="directions.html" target="_blank">Directions...</a></li>
+      </ul>
+    </section>
+    <!-- YOUR HTML MARKUP GOES BELOW THIS COMMENT  -->
+    <body>
+    <div id="everything">
+        <h1>A heading!</h1>
+        <p>Here's some text!</p>
+        <p id = 'target'>Here's a second set of text!</p>
+        <div class="holder">
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+            </ul>
+        </div>
+        <div class="holder">
+            <ul>
+                <li>List Item 4</li>
+                <li>List Item 5</li>
+                <li>List Item 6</li>
+            </ul>
+        </div>
+    </div>
+</body>
+    
+    
+    
+    <!-- YOUR HTML MARKUP GOES ABOVE THIS COMMENT  -->
+  </div>
+  <script type="text/javascript">
+    var allDivs = $('div');
+    console.log(allDivs);
+    
+    var allUls = $('ul');
+    console.log(allUls);
+    
+    var allPs = $('p');
+    allPs.css('color', 'blue');
+    $('#everything').css('background-color', '#ff9999');
+    
+    $('.holder').css('border', '1px solid black');
+    
+    $('#target').remove();
+    console.log(allPs);
+    $('<div>hello</div>').prependTo('#everything');
+    $('<div>goodbye</div>').appendTo('#everything');
+    $('<div>yo</div>').prependTo('body');  
+    $('<div>hey</div>').appendTo('body');
+
+    $('<div>first</div>').attr('id', 'first').insertBefore('.holder:first');
+    $('<div>second</div>').attr('id', 'second').insertAfter('.holder:last');
+    
+    var newDetachedDiv = $('<div>Some Words</div>');
+    newDetachedDiv.css('color', '#53ff1a').css('font-family', 'Helvetica');
+    $('body').prepend(newDetachedDiv);
+    
+    //$('div').remove();
+    //$('##everything').empty();
+    var orphanNode = $('#target').detach();
+     $('#everything').append(orphanNode);
+     
+     var parentNode = $('#everything').parent();
+     console.log(parentNode);
+     console.log($('#everything').find('li'));
+     setInterval(function(){
+       $('#everything').css('background-color', 'blue')
+     }, 2000);
+     setInterval(function(){
+       $('#everything').css('background-color', 'orange')
+     }, 4000);
+  </script>
+</body>
+
+</html>

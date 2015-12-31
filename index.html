@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>My personal website</title>
+        <link rel="stylesheet" type="text/css" href="css/custom.css">
+        </head>
+    
+    <body>
+        <div id="all-contents">
+            <nav>
+                <li><a href="studies.html">Studies</a></li>
+    
+            </nav>
+            <main></main>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(initialize);
+            
+            $(window).on('hashchange', function(){
+                loadTemplate(location.hash.replace("#", ""));
+            });
+            
+            function initialize() {
+                var template;
+                    //loads in nav page
+                $("nav").load("nav.html");
+                    //tells the window to replace the # with a space
+                template =  window.location.hash.replace("#", ""); 
+                if(template === "") {
+                    template = "home";
+                }
+                
+                loadTemplate(template);
+            }
+                //loads in template
+            function loadTemplate (template) {     
+                $("main").load(template + ".html");
+            }
+            
+        </script>
+    </body>
+    
+</html>
